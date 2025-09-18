@@ -94,5 +94,6 @@ def run_server(port=8000):
         except KeyboardInterrupt:
             print("\nСервер остановлен")
 
+
 if __name__ == "__main__":
     run_server()
