@@ -53,7 +53,7 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
     
     def serve_css_file(self, path):
         """Отдает CSS файлы"""
-        css_path = path.lstrip('/')
+        css_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), path.lstrip('/'))
         if os.path.exists(css_path):
             with open(css_path, 'rb') as f:
                 content = f.read()
@@ -69,7 +69,7 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
         """Отдает страницу контактов"""
         try:
             # Читаем HTML файл контактов
-            with open('contacts.html', 'r', encoding='utf-8') as f:
+            with open(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'contacts.html'), 'r', encoding='utf-8') as f:
                 html_content = f.read()
             
             # Отправляем ответ
