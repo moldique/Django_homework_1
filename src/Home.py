@@ -3,6 +3,7 @@ import socketserver
 import os
 from urllib.parse import urlparse
 
+
 class MyHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         # Парсим URL
